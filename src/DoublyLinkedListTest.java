@@ -1,32 +1,33 @@
+import java.util.*;
 
-class LinkedNode
+class LinkedNode<T>
 {
-    protected int data;
+    protected T data;
     private LinkedNode previousNode;
     private LinkedNode nextNode;
     
     public LinkedNode()
     {
-        data = 0;
+        data = null;
         previousNode = null;
         nextNode = null;
     }
 
     //Overloaded constructor
-    public LinkedNode(int dataValue)
+    public LinkedNode(T dataValue)
     {
         data = dataValue;
         previousNode = null;
         nextNode = null;
     }
         
-    public boolean setData(int dataValue)
+    public boolean setData(T dataValue)
     {
         data = dataValue;
         return true;
     }
 
-    public int getData()
+    public T getData()
     {
         return data;
     }        
@@ -56,7 +57,7 @@ class LinkedNode
 }
 
 
-class LinkedList
+class LinkedList<T>
 {
     private LinkedNode head;
     private LinkedNode tail;
@@ -152,7 +153,7 @@ class LinkedList
     }
 
 
-    public int replaceElement(LinkedNode p, LinkedNode e) throws LinkedListError
+    public T replaceElement(LinkedNode p, LinkedNode e) throws LinkedListError
     {
         if (isEmpty())
             {
@@ -164,7 +165,7 @@ class LinkedList
         e.setNext(p.getNext());
         e.setPrevious(p.getPrevious());
 
-        return p.getData();
+        return (T) p.getData();
     }
 
     public void swapElements(LinkedNode p, LinkedNode e) throws LinkedListError

@@ -1,21 +1,21 @@
-class ImplementedQueue
+class ImplementedQueue<T>
 {
-    private int[] queue;
+    private T[] queue;
     private int queueSize;
     private int f;
     private int r;
 
     public ImplementedQueue(int size)
     {
-	queueSize = size;
-	queue = new int[queueSize];
-	f = 0;
-	r = 0;
+        queueSize = size;
+        queue = (T[]) new Object[queueSize];
+        f = 0;
+        r = 0;
     }
 
     public int size()
     {
-	return ((queueSize - f + r) % queueSize);
+        return ((queueSize - f + r) % queueSize);
     }
 
     public boolean isEmpty()
@@ -26,53 +26,53 @@ class ImplementedQueue
 	//     result = true;
 	// }
 	// return result;
-	if (size() == 0)
-	{
-	    return true;
-	}
-	return false;
+        if (size() == 0)
+            {
+                return true;
+            }
+        return false;
     }
 
-        public boolean isFull()
+    public boolean isFull()
     {
-	boolean result = false;
-	if (size() == (queueSize - 1))
-	{
-	    result = true;
-	}
-	return result;
+        boolean result = false;
+        if (size() == (queueSize - 1))
+            {
+                result = true;
+            }
+        return result;
     }
 
-    public int front() throws QueueEmptyException
+    public T front() throws QueueEmptyException
     {
-	if (isEmpty())
-	{
-	    throw new QueueEmptyException("Queue is empty, Cannot return Front");
-	}
-	return queue[f];
+        if (isEmpty())
+            {
+                throw new QueueEmptyException("Queue is empty, Cannot return Front");
+            }
+        return queue[f];
     }
 
-    public boolean enqueue(int element) throws QueueFullException
+    public boolean enqueue(T element) throws QueueFullException
     {
-	if (size() == (queueSize - 1))
-	{
-	    throw new QueueFullException("Queue is full, Cannot Insert new element");
-	}
-	//System.out.println(element);
-	queue[r] = element;
-	r = ((r + 1) % queueSize);
-	return true;
+        if (size() == (queueSize - 1))
+            {
+                throw new QueueFullException("Queue is full, Cannot Insert new element");
+            }
+        //System.out.println(element);
+        queue[r] = element;
+        r = ((r + 1) % queueSize);
+        return true;
     }
 
-    public int dequeue() throws QueueEmptyException
+    public T dequeue() throws QueueEmptyException
     {
-	if (isEmpty())
-	{
-	    throw new QueueEmptyException("Queue is empty, Cannot pop an element");
-	}	
-	int temp = queue[f];
-	f = ((f + 1) % queueSize);
-	return temp;
+        if (isEmpty())
+            {
+                throw new QueueEmptyException("Queue is empty, Cannot pop an element");
+            }	
+        T temp = queue[f];
+        f = ((f + 1) % queueSize);
+        return temp;
     }
 }
 
@@ -109,7 +109,7 @@ class QueueFullException extends QueueException
 
 
 
-public class QueueTestDrive
+public class QueueTest
 
 {
     public static void main(String[] args)
