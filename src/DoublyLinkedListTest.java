@@ -111,7 +111,7 @@ class LinkedList<T>
             {
                 throw new LinkedListError("Linked list is empty");
             }
-        return head.getPrevious();
+        return tail.getPrevious();
     }    
     
     public boolean isFirst(LinkedNode node)
