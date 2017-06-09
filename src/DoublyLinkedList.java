@@ -62,7 +62,7 @@ public class DoublyLinkedList<T>
     private LinkedNode head;
     private LinkedNode tail;
     
-    public LinkedList()
+    public DoublyLinkedList()
     {
         head = new LinkedNode();
         tail = new LinkedNode();

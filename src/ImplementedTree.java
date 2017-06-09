@@ -58,7 +58,7 @@ class ImplementedTree<T>
     private ArrayList<T> positions;
     private int size;
     @SuppressWarnings("unchecked")
-    public Tree(T dataVal)
+    public ImplementedTree(T dataVal)
     {
         root = (new Node(dataVal));
         root.setParent(null);
@@ -66,7 +66,7 @@ class ImplementedTree<T>
     }
 
     @SuppressWarnings("unchecked")
-    public Tree()
+    public ImplementedTree()
     {
         root = new Node(0);
         root.setParent(null);
