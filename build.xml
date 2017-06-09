@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="Data Structures and Algorithms" default="build">
+
+    <property name="src.dir" value="src"/>
+    <property name="test.dir" value="test"/>
+    <property name="build.dir" value="build"/>
+  
+    <target name="Welcome">
+        <echo>Hello World - Welcome to my ${ant.project.name} Project!</echo>
+    </target>
+
+    <target name="Tools_info">
+        <echo>The JDK version is ${ant.java.version}</echo>
+    </target>
+
+    <target name="Base_dir">
+        <echo>The Base Directory is ${basedir}</echo>
+    </target>
+
+    <target name="build" description="Compile all the test tree java files" depends="Welcome,Tools_info,Base_dir">
+        <mkdir dir="${build.dir}"/>
+        <echo>Building all tests</echo>
+        <javac destdir="${build.dir}" srcdir="${test.dir}" sourcepath="${src.dir}" includeantruntime="false" />
+    </target>
+
+    <target name="run" description="Run all compiled tests">
+        <echo>Running all tests</echo>
+        <java fork="true" failonerror="yes" classpath="${build.dir}" classname="QueueTest"/>
+    </target>
+    
+    <target name="clean" description="Clean output directories">
+        <echo>Cleaning output directories</echo>
+        <delete>
+           <fileset dir="${build.dir}">
+              <include name="**/*.class"/>
+          </fileset>
+        </delete>
+    </target>
+
+    <target name="all" description="Build, Run and Clean project" depends="build, run, clean">
+        <echo>Build, Run and Clean project complete!!</echo>
+    </target>
+    
+</project>
+
+  

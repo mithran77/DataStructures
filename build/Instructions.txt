@@ -1,3 +1,0 @@
-javac src/DoublyLinkedListTest.java -d bin/
-cd bin && java DoublyLinkedListTest
-
